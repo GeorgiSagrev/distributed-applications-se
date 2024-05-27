@@ -1,0 +1,109 @@
+﻿@using MyApplication.ViewModels.Orders
+@model AddVM
+@{
+}
+
+<h2> Направи поръчка</h2>
+
+<form action="/Orders/Add" method="post">
+    <div>
+        <div class="grid">
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Details)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Details)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Details)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Quantity)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Quantity)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Quantity)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Total)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Total)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Total)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Tip)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Tip)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Tip)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.IsExpress)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.IsExpress)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.IsExpress)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Customer_ID)
+                </div>
+                <div class="col-2">
+                    <select id="Customer_ID" name="Customer_ID">
+                        @foreach (var customer in Model.Customers)
+                        {
+                            <option value="@customer.Id">@customer.FirstName @customer.LastName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Worker_ID)
+                </div>
+                <div class="col-2">
+                    <select id="Worker_ID" name="Worker_ID">
+                        @foreach (var worker in Model.Workers)
+                        {
+                            <option value="@worker.Id">@worker.FirstName @worker.LastName</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="row mb-2">
+                    <div class="col-3">
+                        @Html.ValidationMessage("Моля опитайте по-късно!")
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <input type="submit" class="right" value="Запази" />
+                        <a href="/Orders/Index" class="right">Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> 

@@ -1,0 +1,101 @@
+﻿@using MyApplication.ViewModels.Orders
+@model EditVM
+@{
+}
+
+<h2> Промени поръчка</h2>
+
+<form action="/Orders/Edit" method="post">
+    <div>
+        <div class="grid">
+            @Html.HiddenFor(m => m.Order.Id)
+            @Html.HiddenFor(m => m.Order.PlacedOn)
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Details)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Details)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Details)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Quantity)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Quantity)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Quantity)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Total)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Total)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Total)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Tip)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Order.Tip)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.Tip)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.IsExpress)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Order.IsExpress)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Order.IsExpress)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Customer_ID)
+                </div>
+                <div class="col-2">
+                    @Html.DropDownListFor(n=>n.Order.Customer_ID,new SelectList(Model.Customers,"Id","FirstName",Model.Order.Customer_ID))
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-2">
+                    @Html.LabelFor(m => m.Order.Worker_ID)
+                </div>
+                <div class="col-2">
+                    @Html.DropDownListFor(n => n.Order.Worker_ID, new SelectList(Model.Workers, "Id", "FirstName", Model.Order.Worker_ID))
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="row mb-2">
+                    <div class="col-3">
+                        @Html.ValidationMessage("Моля опитайте по-късно!")
+                    </div>
+                </div>
+
+                <div class="row mb-2">
+                    <div class="col-2"></div>
+                    <div class="col-2">
+                        <input type="submit" class="right" value="Запази" />
+                        <a href="/Orders/Index" class="right">Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form> 

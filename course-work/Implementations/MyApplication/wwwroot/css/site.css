@@ -1,0 +1,120 @@
+html {
+    font-size: 14px;
+    color:black;
+}
+
+body {
+    background: lightgray;
+    color:black;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+table {
+    border: 1px solid #000 !important;
+}
+
+.navbar {
+    background: gray;
+    color: black;
+}
+
+.nav-link:hover {
+    background: darkgray;
+    color: white;
+    text-decoration: none;
+    appearance: button;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    border-width: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 100%;
+    height: 30px;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    transition: all .2s,box-shadow .08s ease-in;
+    width: 100%;
+}
+
+.text-primary, .text-danger {
+    background-color: #EA4C89;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.text-primary, .text-danger,
+.button-1:focus {
+    background-color: gray;
+}
+
+table {
+    background: gray;
+    border-radius: ;
+    border-collapse: collapse;
+    margin: 1em;
+}
+
+th {
+    border-bottom: 1px solid #364043;
+    color: black;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    text-align: left;
+}
+
+td {
+    color: black;
+    font-weight: 400;
+    padding: 0.65em 1em;
+}
+
+.disabled td {
+    color: #4F5F64;
+}
+
+tbody tr {
+    transition: background 0.25s ease;
+}
+
+    tbody tr:hover {
+        background: darkgray;
+    }

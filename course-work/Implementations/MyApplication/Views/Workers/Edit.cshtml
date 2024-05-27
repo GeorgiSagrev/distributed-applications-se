@@ -1,0 +1,85 @@
+﻿@model MyApplication.ViewModels.Workers.EditVM
+@{
+}
+
+<h2> Промени работник</h2>
+
+<form id="editWorkerForm" action="/Workers/Edit" method="post">
+    <div>
+        <div class="grid">
+            @Html.HiddenFor(m => m.Worker.Id)
+            @Html.HiddenFor(m => m.Worker.RegisteredOn)
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Worker.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Worker.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Worker.FirstName)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Worker.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Worker.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Worker.LastName)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Worker.EmailAddress)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Worker.EmailAddress)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Worker.EmailAddress)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Worker.Salary)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Worker.Salary)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Worker.Salary)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Worker.IsFullTime)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.Worker.IsFullTime)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Worker.IsFullTime)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-3">
+                    @Html.ValidationMessage("summaryError")
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <input type="submit" class="right" value="Запази" />
+                    <a href="/Worker/Index" class="right">Назад</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

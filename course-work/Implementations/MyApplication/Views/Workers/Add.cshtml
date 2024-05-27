@@ -1,0 +1,83 @@
+﻿@model MyApplication.ViewModels.Workers.AddVM
+@{
+}
+
+<h2> Добави Работник</h2>
+
+<form id="addWorkerForm" action="/Workers/Add" method="post">
+    <div>
+        <div class="grid">
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.FirstName)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.LastName)
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.EmailAddress)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.EmailAddress)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.EmailAddress)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.Salary)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(m => m.Salary)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.Salary)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1">
+                    @Html.LabelFor(m => m.IsFullTime)
+                </div>
+                <div class="col-2">
+                    @Html.CheckBoxFor(m => m.IsFullTime)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(m => m.IsFullTime)
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-3">
+                    @Html.ValidationMessage("summaryError")
+                </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <input type="submit" class="right" value="Запази" />
+                    <a href="/Workers/Index" class="right">Откажи</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,94 @@
+﻿@model MyApplication.ViewModels.Orders.SearchVM
+@{
+}
+
+<h2>Поръчки</h2>
+
+<table class="table">
+
+    <tr>
+        <th >
+            Информация
+        </th>
+        <th >
+            Количесто
+        </th>
+        <th >
+            Клиент
+        </th>
+        <th >
+            Работник
+        </th>
+        <th >
+            Поръчана
+        </th>
+        <th >
+            Експресна доставка
+        </th>
+        <th >
+            Крайна сума (BGN)
+        </th>
+        <th >
+            Бакшиш (BGN)
+        </th>
+        <th  colspan="2">
+            Действия
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Orders)
+    {
+        <tr>
+            <td >
+                @item.Details
+            </td>
+            <td >
+                @item.Quantity
+            </td>
+            <td >
+                @item?.Customer?.FirstName @item?.Customer?.LastName
+            </td>
+            <td >
+                @item?.Worker?.FirstName @item?.Worker?.LastName
+            </td>
+            <td >
+                @item?.PlacedOn
+            </td>
+            @if (item.IsExpress)
+            {
+                <td >Да</td>
+            }
+            else
+            {
+                <td >Не</td>
+            }
+            <td >
+                @item?.Total
+            </td>
+            <td >
+                @item?.Tip
+            </td>
+            <td>
+                <a href="/Orders/Edit?id=@item.Id" class="text-primary">Редактирай</a>
+            </td>
+            <td>
+                <a href="/Orders/Delete?id=@item.Id" class="text-danger" method="delete" onclick="return confirm('Изтрий поръчката');">Изтрий</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="d-flex justify-center">
+    <a href="/Orders/Add">Добави </a>
+</div>
+
+<h4>Търси</h4>
+
+<div class="search-container">
+    <form id="searchForm" action="/Orders/Search" method="post">
+        <input type="text" id="firstName" placeholder="Search.." name="firstName">
+        <button type="submit">Търси</button>
+        <a href="/Orders/Index">Нулирай</a>
+    </form>
+</div>

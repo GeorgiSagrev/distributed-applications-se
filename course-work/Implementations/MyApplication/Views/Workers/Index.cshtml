@@ -1,0 +1,83 @@
+﻿@model MyApplication.ViewModels.Workers.IndexVM
+@{
+}
+
+<h4>Работници</h4>
+
+<table class="table">
+    <tr>
+        <th >
+            Име 
+        </th>
+        <th >
+            Фамилия   
+        </th>
+        <th >
+            E-mail  
+        </th>
+        <th >
+            Заплата  
+        </th>
+        <th >
+            Пълно време   
+        </th>
+        <th >
+            Брой поръчки    
+        </th>
+        <th >
+            Дата на регистрация  
+        </th>
+        <th  colspan="2">
+            Дейстивя 
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Worker)
+    {
+        <tr>
+            <td >
+                @item.FirstName
+            </td>
+            <td >
+                @item.LastName
+            </td>
+            <td >
+                @item.EmailAddress
+            </td>
+            <td >
+                @item.Salary
+            </td>
+            <td >
+                @item.IsFullTime
+            </td>
+            <td >
+                @item.TotalOrders
+            </td>
+            <td >
+                @item.RegisteredOn
+            </td>
+
+            <td >
+                <a href="/Workers/Edit?id=@item.Id" class="text-primary">Редактирай</a>
+            </td>
+
+            <td >
+                <a href="/Workers/Delete?id=@item.Id" class="text-danger" method="delete" onclick="return confirm('Delete Worker?');">Изтрий</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="d-flex justify-center">
+    <a href="/Workers/Add">Добави +</a>
+</div>
+
+<h4>Търси</h4>
+
+<div class="search-container">
+    <form id="searchForm" action="/Workers/Search" method="post">
+        <input type="text" id="firstName" placeholder="Search.." name="firstName">
+        <button type="submit">Търси</button>
+    </form>
+</div>

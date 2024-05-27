@@ -1,0 +1,84 @@
+﻿@model MyApplication.ViewModels.Workers.SearchVM
+@{
+}
+
+<h4>Workers</h4>
+
+<table class="table">
+    <tr>
+        <th >
+            First name
+        </th>
+        <th >
+            Last name
+        </th>
+        <th >
+            E-mail
+        </th>
+        <th >
+            Salary
+        </th>
+        <th >
+            Full-Time
+        </th>
+        <th >
+            Total orders
+        </th>
+        <th >
+            Date Of Registration
+        </th>
+        <th  colspan="2">
+            Actions
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Workers)
+    {
+        <tr>
+            <td >
+                @item.FirstName
+            </td>
+            <td >
+                @item.LastName
+            </td>
+            <td >
+                @item.EmailAddress
+            </td>
+            <td >
+                @item.Salary
+            </td>
+            <td >
+                @item.IsFullTime
+            </td>
+            <td >
+                @item.TotalOrders
+            </td>
+            <td >
+                @item.RegisteredOn
+            </td>
+
+            <td >
+                <a href="/Workers/Edit?id=@item.Id" class="text-primary">Edit</a>
+            </td>
+
+            <td >
+                <a href="/Workers/Delete?id=@item.Id" class="text-danger" method="delete" onclick="return confirm('Delete Worker?');">Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="d-flex justify-center">
+    <a href="/Workers/Add">Add +</a>
+</div>
+
+<h4>Search</h4>
+
+<div class="search-container">
+    <form id="searchForm" action="/Workers/Search" method="post">
+        <input type="text" id="firstName" placeholder="Search.." name="firstName">
+        <button type="submit">Search</button>
+        <a href="/Workers/Index">Reset</a>
+    </form>
+</div>

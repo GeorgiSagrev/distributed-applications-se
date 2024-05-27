@@ -1,0 +1,26 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Упс.</h1>
+<h2 class="text-danger">Появи се грешка докато ти обработваме поръчката</h2>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<h3>Режим на разработка</h3>
+<p>
+    Преминаването към <strong>среда за разработка</strong>  ще покаже по-подробна информация за възникналата грешка.
+</p>
+<p>
+    <strong>Средата за разработка не трябва да е активирана за внедрени приложения.</strong>
+    Това може да доведе до показване на чувствителна информация от изключения за крайни потребители.
+    За локално отстраняване на грешки активирайте средата за  <strong>Разработка</strong> като зададете променливата на средата  <strong>ASPNETCORE_ENVIRONMENT</strong> на <strong>Разработка</strong>
+    и рестартиране на приложението.
+    and restarting the app.
+</p>
